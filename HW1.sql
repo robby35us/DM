@@ -40,3 +40,12 @@ SELECT invoice_total - (payment_total + credit_total) AS "Balance Due",
 FROM invoices
 WHERE payment_date IS NULL 
     AND invoice_total - (payment_total + credit_total) = 0;
+--
+--EXTRA CREDIT
+--Problem 10
+SELECT "Starting Principal", "Starting Principal" * 1.1 AS "New Principal",
+    "Starting Principal" * .0715 AS "Interest", 
+    "Starting Principal" * (1.1 + .0715) AS "Principal + Interest",
+    TO_CHAR(SYSDATE, 'dd-mon-yyy hh24:mi:ss') AS "System Date"
+FROM (SELECT 51000 AS "Starting Principal" 
+      FROM dual);
